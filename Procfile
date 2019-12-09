@@ -1,2 +1,2 @@
 web: yarn dev
-web: yarn db:migrate 
+web: yarn sequelize db:migrate
