@@ -1,2 +1,2 @@
 web: yarn dev
-web: yarn db:migrations 
+web: yarn db:migrate 
