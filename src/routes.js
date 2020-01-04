@@ -14,6 +14,9 @@ import AppointmentController from './app/controllers/AppointmentController';
 import NotificationController from './app/controllers/NotificationController';
 import AvailableController from './app/controllers/AvailableController';
 
+import cors from 'cors';
+app.use(cors());
+
 const routes = new Router();
 const upload = multer(multerConfig);
 
