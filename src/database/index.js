@@ -3,16 +3,19 @@ import mongoose from 'mongoose';
 
 import User from '../app/models/User';
 import File from '../app/models/File';
+import Specialties from '../app/models/Specialties';
 
 import databaseConfig from '../config/database';
 import Appointment from '../app/models/Appointment';
+import SpecialtiesController from '../app/controllers/SpecialtiesController';
 
-const models = [User, File, Appointment];
+const models = [User, File, Appointment, Specialties];
 
 class DataBase {
   constructor() {
     this.init();
     this.mongo();
+    //this.dataInit();
   }
   init() {
     this.connection = new Sequelize(databaseConfig);
@@ -23,14 +26,18 @@ class DataBase {
     //
   }
   mongo() {
-    this.mongoConnection = mongoose.connect(
-      'mongodb://192.168.99.100:27017/plusclin',
-      {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-      }
-    );
+    this.mongoConnection = async () =>
+      await mongoose.connect(
+        'mongodb+srv://plusclin:masterkey@cluster0-vvzlf.mongodb.net/test?retryWrites=true&w=majority',
+        {
+          useNewUrlParser: true,
+
+          useUnifiedTopology: true,
+        }
+      );
+  }
+  dataInit() {
+    SpecialtiesController.initDatabase();
   }
 }
 export default new DataBase();
