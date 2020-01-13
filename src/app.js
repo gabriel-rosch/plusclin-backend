@@ -4,7 +4,6 @@ import routes from './routes';
 import path from 'path';
 
 import './database';
-import { runInThisContext } from 'vm';
 class App {
   constructor() {
     this.server = express();

@@ -7,9 +7,11 @@ import Specialties from '../app/models/Specialties';
 
 import databaseConfig from '../config/database';
 import Appointment from '../app/models/Appointment';
+import Clinic from '../app/models/Clinic';
+import Address from '../app/models/Address';
 import SpecialtiesController from '../app/controllers/SpecialtiesController';
 
-const models = [User, File, Appointment, Specialties];
+const models = [User, File, Appointment, Specialties, Clinic, Address];
 
 class DataBase {
   constructor() {

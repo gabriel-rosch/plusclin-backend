@@ -1,23 +1,20 @@
 import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
-class User extends Model {
+
+class Clinic extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: Sequelize.STRING,
+        nome: Sequelize.STRING,
         email: Sequelize.STRING,
         password_hash: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
-        provider: Sequelize.BOOLEAN,
       },
-      {
-        sequelize,
-      }
+      sequelize
     );
-    //roda apos qualquer usuario ser criado ou editado no banco
-    this.addHook('beforeSave', async user => {
-      if (user.password) {
-        user.password_hash = await bcrypt.hash(user.password, 8);
+    //roda apos qualquer clinica ser criado ou editado no banco
+    this.addHook('beforeSave', async clinic => {
+      if (clinic.password) {
+        clinic.password_hash = await bcrypt.hash(user.password, 8);
       }
     });
     return this;
@@ -25,9 +22,10 @@ class User extends Model {
   static associate(models) {
     this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
   }
-
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'address_id', as: 'address' });
+  }
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);
   }
 }
-export default User;
