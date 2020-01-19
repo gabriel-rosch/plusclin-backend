@@ -15,3 +15,4 @@ class Address extends Model {
     return this;
   }
 }
+export default Address;

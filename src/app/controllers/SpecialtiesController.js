@@ -1,6 +1,12 @@
 import Specialties from '../models/Specialties';
 
 class SpecialtiesController {
+  async index(req, res) {
+    const specialties = Specialties.findAll();
+
+    return res.json(specialties);
+  }
+
   async initDatabase() {
     const specialties = [
       'ACUPUNTURA',

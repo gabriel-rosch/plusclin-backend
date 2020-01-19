@@ -14,8 +14,8 @@ import AppointmentController from './app/controllers/AppointmentController';
 import NotificationController from './app/controllers/NotificationController';
 import AvailableController from './app/controllers/AvailableController';
 
-import cors from 'cors';
-app.use(cors());
+import SpecialtiesController from './app/controllers/SpecialtiesController';
+
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -41,5 +41,7 @@ routes.delete('/appointments/:id', AppointmentController.delete);
 
 routes.get('/notifications', NotificationController.index);
 routes.put('/notifications/:id', NotificationController.update);
+
+routes.get('/specialties', SpecialtiesController.index);
 
 export default routes;
