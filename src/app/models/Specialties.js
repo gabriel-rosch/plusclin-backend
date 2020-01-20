@@ -4,6 +4,10 @@ class Specialties extends Model {
     super.init(
       {
         name: Sequelize.STRING,
+        used: {
+          type: Sequelize.BOOLEAN,
+          defaultValue: false,
+        },
       },
       {
         sequelize,

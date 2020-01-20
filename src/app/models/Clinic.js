@@ -9,7 +9,9 @@ class Clinic extends Model {
         password_hash: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
       },
-      sequelize
+      {
+        sequelize,
+      }
     );
     //roda apos qualquer clinica ser criado ou editado no banco
     this.addHook('beforeSave', async clinic => {
@@ -20,10 +22,16 @@ class Clinic extends Model {
     return this;
   }
   static associate(models) {
-    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
+    this.belongsTo(models.File, {
+      foreignKey: 'avatar_id',
+      as: 'avatar_clinic',
+    });
   }
   static associate(models) {
-    this.belongsTo(models.File, { foreignKey: 'address_id', as: 'address' });
+    this.belongsTo(models.Address, { foreignKey: 'address_id' });
+  }
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'avatar_id' });
   }
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);

@@ -12,7 +12,7 @@ import databaseConfig from '../config/database';
 
 import SpecialtiesController from '../app/controllers/SpecialtiesController';
 
-const models = [User, File, Appointment, Specialties];
+const models = [User, File, Appointment, Specialties, Clinic, Address];
 
 class DataBase {
   constructor() {

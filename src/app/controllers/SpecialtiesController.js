@@ -2,7 +2,7 @@ import Specialties from '../models/Specialties';
 
 class SpecialtiesController {
   async index(req, res) {
-    const specialties = Specialties.findAll();
+    const specialties = await Specialties.findAll();
 
     return res.json(specialties);
   }

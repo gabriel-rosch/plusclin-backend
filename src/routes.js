@@ -16,13 +16,13 @@ import AvailableController from './app/controllers/AvailableController';
 
 import SpecialtiesController from './app/controllers/SpecialtiesController';
 
-
 const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.post('/user', UserController.store);
 routes.post('/sessions', SessionController.store);
 
+routes.get('/specialties', SpecialtiesController.index);
 //Middlewares
 routes.use(authMiddlewares);
 
@@ -41,7 +41,5 @@ routes.delete('/appointments/:id', AppointmentController.delete);
 
 routes.get('/notifications', NotificationController.index);
 routes.put('/notifications/:id', NotificationController.update);
-
-routes.get('/specialties', SpecialtiesController.index);
 
 export default routes;

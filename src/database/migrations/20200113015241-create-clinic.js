@@ -22,12 +22,12 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      adress_id: {
+      address_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'clinics', key: 'id' },
+        references: { model: 'address', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-        allowNull: false,
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,

@@ -10,7 +10,9 @@ class Address extends Model {
         street: Sequelize.STRING,
         number: Sequelize.INTEGER,
       },
-      sequelize
+      {
+        sequelize,
+      }
     );
     return this;
   }
