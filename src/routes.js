@@ -6,15 +6,15 @@ import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 import ProviderController from './app/controllers/ProviderController';
 import ScheduleController from './app/controllers/ScheduleController';
+import AppointmentController from './app/controllers/AppointmentController';
+import NotificationController from './app/controllers/NotificationController';
+import AvailableController from './app/controllers/AvailableController';
+import SpecialtiesController from './app/controllers/SpecialtiesController';
+import ClinicController from './app/controllers/ClinicController';
 
 import authMiddlewares from './app/middlewares/auth';
 import multer from 'multer';
 import multerConfig from './config/multer';
-import AppointmentController from './app/controllers/AppointmentController';
-import NotificationController from './app/controllers/NotificationController';
-import AvailableController from './app/controllers/AvailableController';
-
-import SpecialtiesController from './app/controllers/SpecialtiesController';
 
 const routes = new Router();
 const upload = multer(multerConfig);
@@ -23,9 +23,11 @@ routes.post('/user', UserController.store);
 routes.post('/sessions', SessionController.store);
 
 routes.get('/specialties', SpecialtiesController.index);
+
+routes.post('/clinic', ClinicController.store);
+
 //Middlewares
 routes.use(authMiddlewares);
-
 routes.get('/schedule', ScheduleController.index);
 
 routes.put('/user', UserController.update);
