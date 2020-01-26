@@ -1,7 +1,21 @@
 import * as Yup from 'yup';
 import User from '../models/User';
-
+import Specialties from '../models/Specialties';
+import File from '../models/File';
 class UserController {
+  async indexSpecialties(req, res) {
+    const checkUserProvider = await User.findAll({
+      where: { id: req.params.id, provider: true },
+      include: [
+        {
+          model: Specialties,
+          as: 'specialties',
+          attributes: ['name'],
+        },
+      ],
+    });
+    return res.json(checkUserProvider);
+  }
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
@@ -16,18 +30,47 @@ class UserController {
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
     }
-    const userExist = await User.findOne({ where: { email: req.body.email } });
 
+    const userExist = await User.findOne({ where: { email: req.body.email } });
     if (userExist) {
       return res.status(400).json({ error: 'user already exists.' });
     }
-    const { id, email, name, provider } = await User.create(req.body);
-    return res.json({
-      id,
-      email,
-      name,
-      provider,
+
+    if (req.body.avatar_id) {
+      const avatarExist = await File.findOne({
+        where: { id: req.body.avatar_id },
+      });
+
+      if (!avatarExist) {
+        return res.status(400).json({ error: 'avatar no already exists.' });
+      }
+    }
+
+    const { specialties, ...data } = req.body;
+
+    const post = await User.create({
+      ...data,
+      avatar_id: req.body.avatar_id,
     });
+
+    const { id, email, name, provider } = post;
+    if (post.provider) {
+      post.setSpecialties(specialties);
+      return res.json({
+        id,
+        email,
+        name,
+        provider,
+        specialties,
+      });
+    } else {
+      return res.json({
+        id,
+        email,
+        name,
+        provider,
+      });
+    }
   }
   async update(req, res) {
     const schema = Yup.object().shape({

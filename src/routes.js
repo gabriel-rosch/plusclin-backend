@@ -20,6 +20,9 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.post('/user', UserController.store);
+
+routes.get('/user/:id', UserController.indexSpecialties);
+
 routes.post('/sessions', SessionController.store);
 
 routes.get('/specialties', SpecialtiesController.index);

@@ -2,9 +2,7 @@ import Specialties from '../models/Specialties';
 
 class SpecialtiesController {
   async index(req, res) {
-    const specialties = await Specialties.findAll();
-
-    return res.json(specialties);
+    return res.json(await Specialties.findAll());
   }
 
   async initDatabase() {

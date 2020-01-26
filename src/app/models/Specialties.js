@@ -15,5 +15,12 @@ class Specialties extends Model {
     );
     return this;
   }
+  static associate(models) {
+    this.belongsToMany(models.User, {
+      through: 'userSpecialties',
+      as: 'user',
+      foreignKey: 'specialties_id',
+    });
+  }
 }
 export default Specialties;

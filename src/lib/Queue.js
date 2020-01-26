@@ -10,7 +10,7 @@ class Queue {
   constructor() {
     this.queues = {};
 
-    this.init();
+    //this.init();
   }
   // Inicia filas com estrotura
   init() {
