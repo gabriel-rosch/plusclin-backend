@@ -26,6 +26,7 @@ routes.get('/user/:id', UserController.indexSpecialties);
 routes.post('/sessions', SessionController.store);
 
 routes.get('/specialties', SpecialtiesController.index);
+routes.get('/specialties/:id', SpecialtiesController.indexId);
 
 routes.post('/clinic', ClinicController.store);
 

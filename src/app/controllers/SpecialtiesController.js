@@ -1,8 +1,21 @@
 import Specialties from '../models/Specialties';
+import User from '../models/User';
 
 class SpecialtiesController {
   async index(req, res) {
     return res.json(await Specialties.findAll());
+  }
+  async indexId(req, res) {
+    const specialties = await Specialties.findAll({
+      where: { id: req.params.id },
+      include: [
+        {
+          model: User,
+          as: 'users',
+        },
+      ],
+    });
+    return res.json(specialties);
   }
 
   async initDatabase() {

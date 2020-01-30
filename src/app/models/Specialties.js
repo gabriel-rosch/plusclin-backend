@@ -18,7 +18,7 @@ class Specialties extends Model {
   static associate(models) {
     this.belongsToMany(models.User, {
       through: 'userSpecialties',
-      as: 'user',
+      as: 'users',
       foreignKey: 'specialties_id',
     });
   }
