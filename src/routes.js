@@ -29,8 +29,10 @@ routes.get('/specialties', SpecialtiesController.index);
 routes.get('/specialties/:id', SpecialtiesController.indexId);
 
 routes.post('/clinic', ClinicController.store);
+routes.get('/clinic', ClinicController.index);
 
-//Middlewares
+
+
 routes.use(authMiddlewares);
 routes.get('/schedule', ScheduleController.index);
 

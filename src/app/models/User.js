@@ -15,7 +15,6 @@ class User extends Model {
         sequelize,
       }
     );
-    //roda apos qualquer usuario ser criado ou editado no banco
     this.addHook('beforeSave', async user => {
       if (user.password) {
         user.password_hash = await bcrypt.hash(user.password, 8);
@@ -25,6 +24,7 @@ class User extends Model {
   }
   static associate(models) {
     this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
+    this.belongsTo(models.Clinic, { foreignKey: 'clinic_id', as: 'clinic' });
 
     this.belongsToMany(models.Specialties, {
       through: 'userSpecialties',

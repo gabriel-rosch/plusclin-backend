@@ -3,7 +3,7 @@ import User from '../models/User';
 
 class SpecialtiesController {
   async index(req, res) {
-    return res.json(await Specialties.findAll());
+    return res.json(await Specialties.findAll({where:{used: true}}));
   }
   async indexId(req, res) {
     const specialties = await Specialties.findAll({

@@ -1,5 +1,6 @@
 //Separando app para testes no futuro
 import app from './app';
 
-app.listen(process.env.PORT || 3000);
-//
+app.listen(process.env.PORT || 3331);
+
+
