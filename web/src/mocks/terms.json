@@ -1,0 +1,69 @@
+{
+  "terms": [
+    {
+      "id": 1,
+      "text": "Tom Riddle",
+      "check": false
+    },
+    {
+      "id": 2,
+      "text": "Gringotes",
+      "check": false
+    },
+    {
+      "id": 3,
+      "text": "Pedro Pettigrew",
+      "check": false
+    },
+    {
+      "id": 4,
+      "text": "Sirius Black",
+      "check": false
+    },
+    {
+      "id": 5,
+      "text": "Nagini",
+      "check": false
+    },
+    {
+      "id": 6,
+      "text": "Harry",
+      "check": false
+    },
+    {
+      "id": 7,
+      "text": "Hermione",
+      "check": false
+    },
+    {
+      "id": 8,
+      "text": "Draco Malfoy",
+      "check": false
+    },
+    {
+      "id": 9,
+      "text": "Ginevra Molly Weasley",
+      "check": false
+    },
+    {
+      "id": 10,
+      "text": "Albus Dumbledore",
+      "check": false
+    },
+    {
+      "id": 11,
+      "text": "Lord Voldemort",
+      "check": false
+    },
+    {
+      "id": 12,
+      "text": "Vítor Krum",
+      "check": false
+    },
+    {
+      "id": 13,
+      "text": "Alvo Severo Potter",
+      "check": false
+    }
+  ]
+}

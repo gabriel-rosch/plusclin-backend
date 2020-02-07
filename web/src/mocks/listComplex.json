@@ -1,0 +1,282 @@
+{
+  "entity": {
+    "id": "xtessNDfmdvX5d-Um5WP2qLPk8aWjw==",
+    "_source": "bc",
+    "field01": "value01",
+    "field02": 2,
+    "field03": 3.0,
+    "field09": "2020-01-02T15:15:12.997",
+    "field00": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+    "enderecos": [
+      {
+        "logradouro": "Rua Azul",
+        "bairro": "Das Cores",
+        "cidade": "Colorida",
+        "uf": {
+          "sigla": "UF",
+          "estado": "Unidade federativa"
+        },
+        "pais": "Brasil"
+      },
+      {
+        "logradouro": "Rua Preta",
+        "bairro": "Das Cores",
+        "cidade": "Colorida",
+        "uf": {
+          "sigla": "UF",
+          "estado": "Unidade federativa"
+        },
+        "pais": "Brasil"
+      }
+    ]
+  },
+  "mapping": {
+    "config": {
+      "config_fields": {
+        "entity": "entity0",
+        "title": "Entity 0",
+        "icon": "fas fa-user",
+        "template": "key-value"
+      },
+      "default_fields": {
+        "id": "_id",
+        "image": "field00",
+        "title": "field01",
+        "source": "_source",
+        "date_ref": "field09"
+      }
+    },
+    "fields": [
+      {
+        "field_from": "field01",
+        "label_pt": "Field 01",
+        "label_es": "Field 01"
+      },
+      {
+        "field_from": "field02",
+        "label_pt": "Field 02",
+        "label_es": "Field 02"
+      },
+      {
+        "field_from": "field03",
+        "label_pt": "Field 03",
+        "label_es": "Field 03"
+      },
+      {
+        "field_from": "field09",
+        "label_pt": "Field 09",
+        "label_es": "Field 09"
+      },
+      {
+        "field_from": "enderecos",
+        "label_pt": "Endereços",
+        "label_es": "Direcciones",
+        "type": "list"
+      },
+      {
+        "field_from": "enderecos.logradouro",
+        "label_pt": "Rua",
+        "label_es": "Calle"
+      },
+      {
+        "field_from": "enderecos.cidade",
+        "label_pt": "Município",
+        "label_es": "Ciudad"
+      },
+      {
+        "field_from": "enderecos.uf.sigla",
+        "label_pt": "Estado",
+        "label_es": "Estado"
+      },
+      {
+        "field_from": "enderecos.pais",
+        "label_pt": "País",
+        "label_es": "Pais"
+      }
+    ]
+  },
+  "result": {
+    "headers": {
+      "totalRecords": 4,
+      "entity01": {
+        "config": {
+          "entity": "entity0",
+          "title": "Entity 0",
+          "icon": "fas fa-user",
+          "template": "key-value"
+        },
+        "i18n": {
+          "field01": "Field 01",
+          "field02": "Field 02",
+          "field03": "Field 03",
+          "field09": "Field 09",
+          "field00": "Field 00",
+          "enderecos": "Endereços",
+          "enderecos.logradouro": "Rua",
+          "enderecos.cidade": "Município",
+          "enderecos.uf.sigla": "Estado",
+          "enderecos.pais": "País"
+        }
+      },
+      "entity02": {
+        "config": {
+          "entity": "entity0",
+          "title": "Entity 0",
+          "icon": "fas fa-user",
+          "template": "key-value"
+        },
+        "i18n": {
+          "field01": "Field 01",
+          "field02": "Field 02",
+          "field03": "Field 03",
+          "field09": "Field 09",
+          "field00": "Field 00",
+          "enderecos": "Endereços",
+          "enderecos.logradouro": "Rua",
+          "enderecos.cidade": "Município",
+          "enderecos.uf.sigla": "Estado",
+          "enderecos.pais": "País"
+        }
+      },
+      "entity03": {
+        "config": {
+          "entity": "entity3",
+          "title": "Entity 1",
+          "icon": "fas fa-user-tie",
+          "template": "key-value"
+        },
+        "i18n": {
+          "field01": "Field 01",
+          "field02": "Field 02",
+          "field03": "Field 03",
+          "field09": "Field 09",
+          "field00": "Field 00",
+          "enderecos": "Endereços",
+          "enderecos.logradouro": "Rua",
+          "enderecos.cidade": "Município",
+          "enderecos.uf.sigla": "Estado",
+          "enderecos.pais": "País"
+        }
+      },
+      "entity04": {
+        "config": {
+          "entity": "entity3",
+          "title": "Entity 1",
+          "icon": "far fa-file",
+          "template": "text"
+        },
+        "i18n": {
+        }
+      },
+      "entity05": {
+        "config": {
+          "entity": "entity5",
+          "title": "Entity 5",
+          "icon": "far fa-file",
+          "template": "text"
+        },
+        "i18n": {
+        }
+      }
+    },
+    "results": [
+      {
+        "entity": "entity01",
+        "id": "xtessNDfmdvX5d-Um5WP2qLPk8aWjw==",
+        "title": "value01dfçgkdfjglsjahgçoajhgçlsajhgadlskjshsldgjçjkfgdçshsdpfsdçkfkhjgççghfgh",
+        "source": "bc",
+        "date_ref": "2020-01-02T15:15:12.997",
+        "data": {
+          "field01": "value01",
+          "field02": 2,
+          "field03": 3.5,
+          "field09": "2020-01-02T15:15:12.997",
+          "enderecos": [
+            {
+              "endereco_completo": "Rua Azul, Das Cores, Colorida, UF, Brasil"
+            },
+            {
+              "endereco_completo": "Rua Preta, Das Cores, Colorida, UF, Brasil"
+            }
+          ],
+          "field00": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png"
+        }
+      },
+      {
+        "entity": "entity02",
+        "id": "998",
+        "image": "https://i.ytimg.com/vi/8zqnR3o-TUg/maxresdefault.jpg",
+        "title": "value01",
+        "source": "bc",
+        "date_ref": "2020-01-02T15:15:12.997",
+        "data": {
+          "field01": "value01",
+          "field02": 2,
+          "field03": 3.5,
+          "field09": "2020-01-02T15:15:12.997",
+          "enderecos": [
+            {
+              "endereco_completo": "Rua Azul, Das Cores, Colorida, UF, Brasil"
+            },
+            {
+              "endereco_completo": "Rua Preta, Das Cores, Colorida, UF, Brasil"
+            }
+          ],
+          "field00": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png"
+        }
+      },
+      {
+        "entity": "entity03",
+        "id": "997",
+        "title": "value0pdfijgljkhlskdjhlskjgsalçkfaçgkhdshgkjlglkjsagãljksffdasgfjadfga",
+        "source": "bc",
+        "date_ref": "2020-01-02T15:15:12.997",
+        "data": {
+          "field01": "value03",
+          "field02": 2,
+          "field03": 3.5,
+          "field09": "2020-01-02T15:15:12.997",
+          "enderecos": [
+            {
+              "endereco_completo": "Rua Azul, Das Cores, Colorida, UF, Brasil"
+            },
+            {
+              "endereco_completo": "Rua Preta, Das Cores, Colorida, UF, Brasil"
+            }
+          ],
+          "field00": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "field11": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "field12": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "field13": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "field14": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "field15": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "field16": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "field17": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png"
+        }
+      },
+      {
+        "entity": "entity04",
+        "id": "996",
+        "image": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+        "title": "value03",
+        "source": "bc",
+        "date_ref": "2020-01-02T15:15:12.997",
+        "data": {
+          "id": 1,
+          "_rotulo": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+      },
+      {
+        "entity": "entity05",
+        "id": "995",
+        "image": "https://media.licdn.com/dms/image/C4D1BAQFLqt9TMyEsMA/company-background_10000/0?e=2159024400&v=beta&t=ehq6PY2gunULk1fIQN2erw7LxJ9jqP26aGRBcjDNV1E",
+        "title": "value03",
+        "source": "bc",
+        "data": {
+          "id": 1,
+          "_rotulo": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        }
+      }
+    ]
+  }
+}

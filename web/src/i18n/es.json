@@ -1,0 +1,101 @@
+{
+  "project": {
+    "title": "Análise Integrada"
+  },
+  "app": {
+    "loadingError": "Não foi possível carregar a Análise Integrada!"
+  },
+  "searchView": {
+    "sourceDropdown": "Fontes de informação",
+    "inputSearch": "O que você deseja procurar?",
+    "bc": "Base de conhecimento",
+    "search": "Pesquisa",
+    "source": "Fonte",
+    "status": "Status",
+    "monitoring": "Monitoramento",
+    "new": "NOVO",
+    "messages": {
+      "success": "Pesquisa agendada com sucesso!",
+      "noSearches": "Não há pesquisas agendadas",
+      "unfinishedSearch": "Não é possível abrir uma pesquisa não finalizada!",
+      "errorSearch": "Não é possível abrir a pesquisa porque ocorreu um erro durante a execução!"
+    }
+  },
+  "searchResult": {
+    "noItem": "Não existem registros para esta pesquisa",
+    "noDate": "Não possui Data",
+    "noPicture": "No Avaliable",
+    "collections": "Coleções",
+    "detail": {
+      "pin": "Fixar",
+      "minimize": "Minimizar",
+      "details": "Detalhes",
+      "noDetail": "Detalhe indisponível"
+    }
+  },
+
+  "sources": {
+    "bc": "Base de conhecimento",
+    "wikipedia": "Wikipédia",
+    "g1": "Globo",
+    "null": "Desconhecida"
+  },
+  "toolbar": {
+    "gridView": "Lista",
+    "sendFor": "Enviar Para"
+  },
+  "status": {
+    "SCHEDULED": "Agendada",
+    "EXECUTING": "Em execução",
+    "ERROR": "Erro",
+    "SUCCESS": "Finalizada com sucesso",
+    "PARTIAL_SUCCESS": "Finalizada com erro"
+  },
+  "pagination": {
+    "showing": "Mostrando",
+    "first": "Ir para a primeira página",
+    "prev": "Página Anterior",
+    "page": "Pág.",
+    "of": "de",
+    "next": "Próxima página",
+    "last": "Ir para a última página",
+    "registers": "registros",
+    "currentPage": "Insira um número de uma página",
+    "itemsPerPage": "Número de itens por página"
+  },
+  "wizard": {
+    "body": {
+      "origin": "Origem",
+      "criterion": "Critério",
+      "configuration": "Configuração",
+      "cancel": "CANCELAR",
+      "monitoring": "MONITORAR"
+    },
+    "tab1": {
+      "twitter": "TWITTER",
+      "news": "NOTÍCIAS",
+      "font": "Fonte",
+      "term": "Termo",
+      "includeTerm": "Inclua um termo",
+      "include": "INCLUIR",
+      "noTerms": "Não há termos para seleção."
+    },
+    "tab2": {
+      "textualMonitoring": "Monitoramento textual",
+      "subjectsMonitoring": "Monitoramento de Assuntos",
+      "exactText": "Texto exato"
+    },
+    "tab3": {
+      "periodMonitoring": "PERÍODO DE MONITORAMENTO",
+      "GenerateAlertsInterface":"Gerar alertas na interface",
+      "SendEmailAlert":"Enviar alerta por e-mail",
+      "Frequency":"Periodicidade:",
+      "RegisteredEmails": "E-mails cadastrados",
+      "SendToMyEmails":"Enviar para meus e-mails",
+      "SendAlertBySMS": "Enviar alera por SMS",
+      "RegisteredSMS": "SMS cadastrados:",
+      "SelectANewSMS":"Selecionar um novo SMS"
+    }
+  }
+}
+

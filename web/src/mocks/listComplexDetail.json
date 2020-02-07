@@ -1,0 +1,172 @@
+{
+  "entity": {
+    "id": "xtessNDfmdvX5d-Um5WP2qLPk8aWjw==",
+    "_source": "bc",
+    "field01": "value01",
+    "field02": 2,
+    "field03": 3.0,
+    "field09": "2020-01-02T15:15:12.997",
+    "field00": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+    "enderecos": [
+      {
+        "logradouro": "Rua Azul",
+        "bairro": "Das Cores",
+        "cidade": "Colorida",
+        "uf": {
+          "sigla": "UF",
+          "estado": "Unidade federativa"
+        },
+        "pais": "Brasil"
+      },
+      {
+        "logradouro": "Rua Preta",
+        "bairro": "Das Cores",
+        "cidade": "Colorida",
+        "uf": {
+          "sigla": "UF",
+          "estado": "Unidade federativa"
+        },
+        "pais": "Brasil"
+      }
+    ]
+  },
+  "mapping": {
+    "config": {
+      "entity": "entity0",
+      "title": "Entity 0",
+      "icon": "fas fa-user",
+      "template": "key-value"
+    },
+    "default_fields": {
+      "id": "_id",
+      "image": "field00",
+      "title": "field01",
+      "source": "_source",
+      "date_ref": "field09"
+    },
+    "fields": [
+      {
+        "name": "field01",
+        "labels": {
+          "pt": "Field 01",
+          "es": "Field 01"
+        }
+      },
+      {
+        "name": "field02",
+        "labels": {
+          "pt": "Field 02",
+          "es": "Field 02"
+        }
+      },
+      {
+        "name": "field03",
+        "labels": {
+          "pt": "Field 03",
+          "es": "Field 03"
+        }
+      },
+      {
+        "name": "field09",
+        "labels": {
+          "pt": "Field 09",
+          "es": "Field 09"
+        }
+      },
+      {
+        "name": "enderecos",
+        "labels": {
+          "pt": "Endereços",
+          "es": "Direcciones"
+        },
+        "type": "list"
+      },
+      {
+        "name": "enderecos.logradouro",
+        "labels": {
+          "pt": "Rua",
+          "es": "Calle"
+        }
+      },
+      {
+        "name": "enderecos.cidade",
+        "labels": {
+          "pt": "Município",
+          "es": "Ciudad"
+        }
+      },
+      {
+        "name": "enderecos.uf.sigla",
+        "labels": {
+          "pt": "Estado",
+          "es": "Estado"
+        }
+      },
+      {
+        "name": "enderecos.pais",
+        "labels": {
+          "pt": "País",
+          "es": "Pais"
+        }
+      }
+    ]
+  },
+  "result": {
+    "headers": {
+      "entity01": {
+        "config": {
+          "entity": "entity0",
+          "title": "Entity 0",
+          "icon": "fas fa-user",
+          "template": "key-value"
+        },
+        "i18n": {
+          "field01": "Field 01",
+          "field02": "Field 02",
+          "field03": "Field 03",
+          "field09": "Field 09",
+          "enderecos": "Endereços",
+          "enderecos.logradouro": "Rua",
+          "enderecos.cidade": "Município",
+          "enderecos.uf.sigla": "Sigla UF",
+          "enderecos.uf.estado": "Estado",
+          "enderecos.pais": "País",
+          "enderecos.bairro": "Bairro"
+        }
+      }
+    },
+    "results":{
+        "entity": "entity01",
+        "id": "xtessNDfmdvX5d-Um5WP2qLPk8aWjw==",
+        "image": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+        "title": "value01",
+        "source": "bc",
+        "date_ref": "2020-01-02T15:15:12.997",
+        "data": {
+          "field01": "value01",
+          "field02": 2,
+          "field03": 3.0,
+          "field09": "2020-01-02T15:15:12.997",
+          "field00": "https://www.digitro.com/wp-content/themes/digitro/lib/img/logo.png",
+          "enderecos": [
+            {
+              "logradouro": "Rua Azul",
+              "bairro": "Das Cores",
+              "cidade": "Colorida",
+              "uf.sigla": "UF",
+              "uf.estado": "Unidade federativa",
+              "pais": "Brasil"
+            },
+            {
+              "logradouro": "Rua Preta",
+              "bairro": "Das Cores",
+              "cidade": "Colorida",
+              "uf.sigla": "UF",
+              "uf.estado": "Unidade federativa",
+              "pais": ""
+            }
+          ]
+        }
+      }
+  }
+}
