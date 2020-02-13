@@ -93,17 +93,17 @@ class AppointmentController {
       date,
     });
 
-    const user = await User.findByPk(req.userId);
-    const formattedDate = format(
-      hourStart,
-      "'dia' dd 'de' MMMM', às' H:mm'h'",
-      { locale: pt }
-    );
-
-    await Notification.create({
-      content: `Novo agendamento de ${user.name} para ${formattedDate}`,
-      user: provider_id,
-    });
+    // const user = await User.findByPk(req.userId);
+    // const formattedDate = format(
+    //   hourStart,
+    //   "'dia' dd 'de' MMMM', às' H:mm'h'",
+    //   { locale: pt }
+    // );
+    //
+    // await Notification.create({
+    //   content: `Novo agendamento de ${user.name} para ${formattedDate}`,
+    //   user: provider_id,
+    // });
 
     return res.json(appointment);
   }

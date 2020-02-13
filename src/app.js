@@ -1,7 +1,8 @@
-//Aqui que configuramos o servidor express
+
 import express from 'express';
 import routes from './routes';
 import path from 'path';
+import cors from 'cors';
 
 import './database';
 class App {
@@ -13,6 +14,7 @@ class App {
   }
 
   middlawares() {
+    this.server.use(cors());
     this.server.use(express.json());
     //Local onde arquivos staticos serão guardados
     this.server.use(

@@ -3,6 +3,7 @@ import Address from '../models/Address';
 import * as Yup from 'yup';
 import User from "../models/User";
 import Specialties from "../models/Specialties";
+import File from "../models/File";
 
 class ClinicController {
     async index(req, res) {
@@ -21,17 +22,24 @@ class ClinicController {
             include: [
                 {
                     model: User,
-                    attributes: ['id'],
-                    include: [{
-                        where: {id: req.body.specialties_id},
-                        attributes: ['id'],
-                        through: {attributes: []},
-                        as: 'specialties',
-                        model: Specialties
-                    }
+                    attributes: ['id','avatar_id'],
+                    include: [
+                        {
+                            where: {id: req.body.specialties_id},
+                            attributes: ['id'],
+                            through: {attributes: []},
+                            as: 'specialties',
+                            model: Specialties
+                        }
                     ],
                 },
+                {
+                    model: File,
+                    as: 'avatar',
+                    attributes: ['name', 'path', 'url'],
+                },
             ],
+
         });
         res.json({ok: clinics});
     }
