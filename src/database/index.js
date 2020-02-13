@@ -15,32 +15,31 @@ import SpecialtiesController from '../app/controllers/SpecialtiesController';
 const models = [User, File, Appointment, Specialties, Clinic, Address];
 
 class DataBase {
-  constructor() {
-    this.init();
-    this.mongo();
-    //this.dataInit();
-  }
-  init() {
-    this.connection = new Sequelize(databaseConfig);
-    models
-      .map(model => model.init(this.connection))
-      .map(model => model.associate && model.associate(this.connection.models));
+    constructor() {
+        this.init();
+        this.mongo();
+        this.dataInit();
+    }
+    init() {
+        this.connection = new Sequelize(databaseConfig);
+        models
+            .map(model => model.init(this.connection))
+            .map(model => model.associate && model.associate(this.connection.models));
 
-    //
-  }
-  mongo() {
-    this.mongoConnection = async () =>
-      await mongoose.connect(
-        'mongodb+srv://plusclin:masterkey@cluster0-vvzlf.mongodb.net/test?retryWrites=true&w=majority',
-        {
-          useNewUrlParser: true,
+        //
+    }
+    mongo() {
+        this.mongoConnection = async() =>
+            await mongoose.connect(
+                'mongodb+srv://plusclin:masterkey@cluster0-vvzlf.mongodb.net/test?retryWrites=true&w=majority', {
+                    useNewUrlParser: true,
 
-          useUnifiedTopology: true,
-        }
-      );
-  }
-  dataInit() {
-    SpecialtiesController.initDatabase();
-  }
+                    useUnifiedTopology: true,
+                }
+            );
+    }
+    dataInit() {
+        SpecialtiesController.initDatabase();
+    }
 }
 export default new DataBase();
