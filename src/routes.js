@@ -28,11 +28,14 @@ routes.post('/sessions', SessionController.store);
 
 routes.get('/specialties', SpecialtiesController.index);
 routes.get('/specialties/:id', SpecialtiesController.indexId);
+routes.get('/specialtiesName', SpecialtiesController.indexName);
+
 
 routes.post('/clinic', ClinicController.store);
 routes.get('/clinic', ClinicController.index);
 
 
+routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.use(authMiddlewares);
 routes.get('/schedule', ScheduleController.index);
@@ -42,7 +45,6 @@ routes.put('/user', UserController.update);
 routes.post('/files', upload.single('file'), FileController.store);
 
 routes.get('/providers', ProviderController.index);
-routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.post('/appointments', AppointmentController.store);
 routes.get('/appointments', AppointmentController.index);

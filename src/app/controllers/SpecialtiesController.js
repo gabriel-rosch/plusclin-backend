@@ -5,6 +5,14 @@ class SpecialtiesController {
   async index(req, res) {
     return res.json(await Specialties.findAll({where:{used: true}}));
   }
+  async indexName(req, res) {
+    const checkSpecialties = await Specialties.findOne({where:{name: req.query.name.toUpperCase()}});
+    if(checkSpecialties) {
+      return res.status(200).json(checkSpecialties);
+    }else{
+      return res.status(404).json('not found');
+    }
+  }
   async indexId(req, res) {
     const specialties = await Specialties.findAll({
       where: { id: req.params.id },

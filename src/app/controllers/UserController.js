@@ -5,20 +5,23 @@ import File from '../models/File';
 import Clinic from "../models/Clinic";
 
 class UserController {
+
+    //Puxa todos provider com alguma especialidade
     async indexSpecialties(req, res) {
-        const checkUserProvider = await User.findAll({
-            where: {id: req.params.id, provider: true},
-            include: [
-                {
-                    model: Specialties,
-                    as: 'specialties',
-                    attributes: ['name'],
-                },
-            ],
-        });
+        const checkUserProvider =
+            await User.findAll({
+                where: {id: req.params.id, provider: true},
+                include: [
+                    {
+                        model: Specialties,
+                        as: 'specialties',
+                        attributes: ['name'],
+                    },
+                ],
+            })
         return res.json(checkUserProvider);
     }
-
+    //puxa todas especialidade em uso
     async store(req, res) {
         const schema = Yup.object().shape({
             name: Yup.string().required(),

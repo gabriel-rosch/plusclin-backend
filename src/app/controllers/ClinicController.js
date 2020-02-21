@@ -22,7 +22,7 @@ class ClinicController {
             include: [
                 {
                     model: User,
-                    attributes: ['id','avatar_id'],
+                    attributes: ['id','name', 'avatar_id'],
                     include: [
                         {
                             where: {id: req.body.specialties_id},
