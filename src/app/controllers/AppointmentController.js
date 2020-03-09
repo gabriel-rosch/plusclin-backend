@@ -3,8 +3,6 @@ import { startOfHour, parseISO, isBefore, format, subHours } from 'date-fns';
 import * as Yup from 'yup';
 import User from '../models/User';
 import File from '../models/File';
-import Notification from '../schemas/Notification';
-import pt from 'date-fns/locale/pt';
 
 import CancellationMail from '../jobs/CancellationMail';
 import Queue from '../../lib/Queue';

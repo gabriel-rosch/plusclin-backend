@@ -7,14 +7,6 @@ import File from "../models/File";
 
 class ClinicController {
     async index(req, res) {
-        const schema = Yup.object().shape({
-            specialties_id: Yup.number().required(),
-            city: Yup.string(),
-            date: Yup.string()
-        });
-        if (!(await schema.isValid(req.body))) {
-            return res.status(400).json({error: 'Validation fails'});
-        }
 
         const clinics = await Clinic.findAll({
             attributes: ['id', 'name'],
@@ -25,7 +17,7 @@ class ClinicController {
                     attributes: ['id','name', 'avatar_id'],
                     include: [
                         {
-                            where: {id: req.body.specialties_id},
+                            where: {id: req.query.specialties_id},
                             attributes: ['id'],
                             through: {attributes: []},
                             as: 'specialties',
@@ -38,10 +30,15 @@ class ClinicController {
                     as: 'avatar',
                     attributes: ['name', 'path', 'url'],
                 },
+                {
+                    model: Address,
+                    as: 'addresses',
+                    attributes: ['city','number','state', 'cep','street']
+                }
             ],
 
         });
-        res.json({ok: clinics});
+        res.json(clinics);
     }
 
     async store(req, res) {

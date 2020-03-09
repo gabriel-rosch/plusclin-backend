@@ -10,7 +10,7 @@ class UserController {
     async indexSpecialties(req, res) {
         const checkUserProvider =
             await User.findAll({
-                where: {id: req.params.id, provider: true},
+                where: {id: req.userId, provider: true},
                 include: [
                     {
                         model: Specialties,
@@ -21,7 +21,6 @@ class UserController {
             })
         return res.json(checkUserProvider);
     }
-    //puxa todas especialidade em uso
     async store(req, res) {
         const schema = Yup.object().shape({
             name: Yup.string().required(),
