@@ -29,9 +29,7 @@ class UserController {
                 .required(),
             password: Yup.string()
                 .required()
-                .min(6),
-            clinic_id: Yup.number()
-                .required()
+                .min(6)
         });
         //se retornar fase
         if (!(await schema.isValid(req.body))) {
@@ -62,14 +60,14 @@ class UserController {
         }
 
         const {specialties, ...data} = req.body;
-
-        specialties.forEach(async x => {
-                const specialtie = await Specialties.findByPk(x);
-                specialtie.used = true;
-                await specialtie.save();
-            }
-        );
-
+        if(specialties) {
+            specialties.forEach(async x => {
+                    const specialtie = await Specialties.findByPk(x);
+                    specialtie.used = true;
+                    await specialtie.save();
+                }
+            );
+        }
         const post = await User.create({
             ...data,
             avatar_id: req.body.avatar_id,
@@ -91,8 +89,7 @@ class UserController {
                 id,
                 email,
                 name,
-                provider,
-                clinic_id
+                provider
             });
         }
     }
