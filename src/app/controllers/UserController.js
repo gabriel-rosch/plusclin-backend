@@ -35,8 +35,9 @@ class UserController {
         if (!(await schema.isValid(req.body))) {
             return res.status(400).json({error: 'Validation fails'});
         }
-
+        console.log("1");
         const userExist = await User.findOne({where: {email: req.body.email}});
+        console.log("2");
         if (userExist) {
             return res.status(400).json({error: 'user already exists.'});
         }
@@ -64,6 +65,7 @@ class UserController {
             specialties.forEach(async x => {
                     const specialtie = await Specialties.findByPk(x);
                     specialtie.used = true;
+                    console.log("erro");
                     await specialtie.save();
                 }
             );

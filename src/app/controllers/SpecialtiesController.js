@@ -144,7 +144,20 @@ class SpecialtiesController {
       'ULTRASSONOGRAFIA GERAL',
       'UROLOGIA',
     ];
-    specialties.forEach(x => Specialties.create({ name: x }));
+    specialties.forEach(x => Specialties.create({ name: x, key: this.removeAcento(x.trim())}));
+  }
+
+  removeAcento(text)
+  {
+    text = text.toLowerCase();
+    text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+    text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+    text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+    text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+    text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+    text = text.replace(new RegExp('[Ç]','gi'), 'c');
+    text = text.replace(new RegExp('[ ]','gi'), '');
+    return text;
   }
 }
 export default new SpecialtiesController();
