@@ -6,7 +6,6 @@ import Clinic from "../models/Clinic";
 
 class UserController {
 
-    //Puxa todos provider com alguma especialidade
     async indexSpecialties(req, res) {
         const checkUserProvider =
             await User.findAll({
