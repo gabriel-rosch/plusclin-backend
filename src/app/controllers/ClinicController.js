@@ -4,10 +4,13 @@ import * as Yup from 'yup';
 import User from "../models/User";
 import Specialties from "../models/Specialties";
 import File from "../models/File";
+import Appointment from "../models/Appointment";
+import {Op} from "sequelize";
+import {endOfDay, format, isAfter, setHours, setMinutes, setSeconds, startOfDay} from "date-fns";
+import cli from "sucrase/dist/cli";
 
 class ClinicController {
     async index(req, res) {
-
         const clinics = await Clinic.findAll({
             attributes: ['id', 'name'],
             limit: 20,
@@ -36,9 +39,54 @@ class ClinicController {
                     attributes: ['city','number','state', 'cep','street']
                 }
             ],
-
         });
-        res.json(clinics);
+        //-------------
+        const { date } = req.query;
+        if (!date) {
+            return res.status(400).json({ error: 'Ivalid date' });
+        }
+        const searchDate = Number(date);
+        const objReturn = []
+        for (const clinic of clinics ) {
+
+            const appointments = await Appointment.findAll({
+                where: {
+                    provider_id: clinic.Users[0].id,
+                    canceled_at: null,
+                    date: {
+                        [Op.between]: [startOfDay(searchDate), endOfDay(searchDate)],
+                    },
+                },
+            });
+            const schedule = [
+                '08:00',
+                // '09:00',
+                // '10:00',
+                // '11:00',
+                // '12:00',
+                // '13:00',
+                // '14:00',
+                // '15:00',
+                // '16:00',
+                // '17:00',
+                // '18:00',
+                // '19:00',
+            ];
+            schedule.find(time => {
+                const [hour, minute] = time.split(':');
+                const value = setSeconds(
+                    setMinutes(setHours(searchDate, hour), minute),
+                    0
+                );
+                if (isAfter(value, new Date()) &&
+                    !appointments.find(a => format(a.date, 'HH:mm') === time)) {
+                    objReturn.push(clinic);
+                    return true;
+                }
+            })
+        }
+
+        res.json(objReturn)
     }
 
     async store(req, res) {

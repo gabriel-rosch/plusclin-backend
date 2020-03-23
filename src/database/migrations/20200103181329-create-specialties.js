@@ -20,6 +20,12 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
+      key: {
+        type: Sequelize.STRING,
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true
+      }
     });
   },
 

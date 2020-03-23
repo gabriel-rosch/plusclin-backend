@@ -8,7 +8,6 @@ import './database';
 class App {
   constructor() {
     this.server = express();
-    //Chamar para que rode os metodos ao chamar a class App
     this.middlawares();
     this.routes();
   }
