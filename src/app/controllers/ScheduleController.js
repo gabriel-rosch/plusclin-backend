@@ -1,4 +1,4 @@
-import { startOfDay, endOfDay, parseISO } from 'date-fns';
+import {startOfDay, endOfDay, parseISO, subHours, isBefore} from 'date-fns';
 
 import { Op } from 'sequelize';
 import Appointment from '../models/Appointment';
@@ -36,6 +36,38 @@ class ScheduleController {
     });
 
     return res.json({ appointments });
+  }
+  async delete(req, res) {
+    const appointment = await Appointment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name', 'email'],
+        },
+        {
+          model: User,
+          as: 'user',
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    if (appointment.provider_id != req.userId) {
+      return req.status(401).json({
+        error: "You don't have permission to cancel this appointment.",
+      });
+    }
+    //Cancela o agendamento
+    appointment.canceled_at = new Date();
+
+    await appointment.save();
+
+    // await Queue.add(CancellationMail.key, {
+    //   appointment,
+    // });
+
+    return res.json(appointment);
   }
 }
 export default new ScheduleController();
