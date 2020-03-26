@@ -43,6 +43,7 @@ routes.use(authMiddlewares);
 routes.get('/user', UserController.indexSpecialties);
 
 routes.get('/schedule', ScheduleController.index);
+routes.delete('/schedule/:id', ScheduleController.delete);
 
 routes.put('/user', UserController.update);
 

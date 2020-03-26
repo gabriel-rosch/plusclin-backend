@@ -6,7 +6,7 @@ class SpecialtiesController {
     return res.json(await Specialties.findAll({where:{used: true}}));
   }
   async indexName(req, res) {
-    const checkSpecialties = await Specialties.findOne({where:{name: req.query.name.toUpperCase()}});
+    const checkSpecialties = await Specialties.findOne({where:{key: req.query.name}});
     if(checkSpecialties) {
       return res.status(200).json(checkSpecialties);
     }else{
