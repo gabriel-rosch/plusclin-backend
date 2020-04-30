@@ -10,3 +10,5 @@ tmp/uploads/*
 *.js
 src/server.js
 src/config/database.js
+src/config/database.js
+src/config/database.js
