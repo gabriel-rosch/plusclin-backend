@@ -6,7 +6,7 @@ class SpecialtiesController {
     return res.json(await Specialties.findAll({where:{used: true}}));
   }
   async indexName(req, res) {
-    const checkSpecialties = await Specialties.findOne({where:{key: req.query.name}});
+    const checkSpecialties = await Specialties.findOne({where:{key: req.query.key}});
     if(checkSpecialties) {
       return res.status(200).json(checkSpecialties);
     }else{
@@ -144,7 +144,10 @@ class SpecialtiesController {
       'ULTRASSONOGRAFIA GERAL',
       'UROLOGIA',
     ];
-    specialties.forEach(x => Specialties.create({ name: x, key: this.removeAcento(x.trim())}));
+    const specialtiesDb = await Specialties.findAll();
+    if(!specialtiesDb.length) {
+      specialties.forEach(x => Specialties.create({name: x, key: this.removeAcento(x.trim())}));
+    }
   }
 
   removeAcento(text)

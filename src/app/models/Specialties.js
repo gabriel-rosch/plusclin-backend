@@ -7,7 +7,8 @@ class Specialties extends Model {
         used: {
           type: Sequelize.BOOLEAN,
           defaultValue: false,
-        }
+        },
+        key: Sequelize.STRING
       },
       {
         sequelize,

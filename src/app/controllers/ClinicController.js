@@ -40,7 +40,6 @@ class ClinicController {
                 }
             ],
         });
-        //-------------
         const { date } = req.query;
         if (!date) {
             return res.status(400).json({ error: 'Ivalid date' });
@@ -60,17 +59,17 @@ class ClinicController {
             });
             const schedule = [
                 '08:00',
-                // '09:00',
-                // '10:00',
-                // '11:00',
-                // '12:00',
-                // '13:00',
-                // '14:00',
-                // '15:00',
-                // '16:00',
-                // '17:00',
-                // '18:00',
-                // '19:00',
+                '09:00',
+                '10:00',
+                '11:00',
+                '12:00',
+                '13:00',
+                '14:00',
+                '15:00',
+                '16:00',
+                '17:00',
+                '18:00',
+                '19:00',
             ];
             schedule.find(time => {
                 const [hour, minute] = time.split(':');
@@ -85,7 +84,6 @@ class ClinicController {
                 }
             })
         }
-
         res.json(objReturn)
     }
 
