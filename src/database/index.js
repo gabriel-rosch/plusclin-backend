@@ -18,7 +18,7 @@ class DataBase {
   constructor() {
     this.init();
     this.mongo();
-    //this.dataInit();
+    this.dataInit();
   }
   init() {
     this.connection = new Sequelize(databaseConfig);

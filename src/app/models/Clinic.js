@@ -1,5 +1,5 @@
 import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 class Clinic extends Model {
   static init(sequelize) {
     super.init(
@@ -7,7 +7,7 @@ class Clinic extends Model {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
         password_hash: Sequelize.STRING,
-        password: Sequelize.VIRTUAL,
+        password: Sequelize.VIRTUAL
       },
       {
         sequelize,

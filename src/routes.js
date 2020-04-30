@@ -38,11 +38,14 @@ routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.post('/files', upload.single('file'), FileController.store);
 
+routes.get('/provider/:id/specialties', ProviderController.indexSpecialties);
+
 routes.use(authMiddlewares);
 
 routes.get('/user', UserController.indexSpecialties);
 
 routes.get('/schedule', ScheduleController.index);
+
 routes.delete('/schedule/:id', ScheduleController.delete);
 
 routes.put('/user', UserController.update);

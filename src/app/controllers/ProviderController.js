@@ -1,5 +1,6 @@
 import User from '../models/User';
 import File from '../models/File';
+import Specialties from "../models/Specialties";
 class ProvideController {
   async index(req, res) {
     const providers = await User.findAll({
@@ -17,5 +18,30 @@ class ProvideController {
 
     return res.json(providers);
   }
+  async indexSpecialties(req, res) {
+    const providerSpecialties = await User.findOne({
+          where: {id: req.params.id, provider: true},
+          attributes: ['name'],
+          include: [
+            {
+              model: Specialties,
+              as: 'specialties',
+              attributes: ['name'],
+            },
+          ],
+        })
+    const specialties = providerSpecialties.specialties.map(x => x.name);
+    let stringSpecialties = '';
+    for (let i = 0; i < specialties.length ; i++) {
+      if(i < specialties.size){
+        stringSpecialties = stringSpecialties + specialties[i] + ", "
+      } else {
+        stringSpecialties = stringSpecialties + specialties[i];
+      }
+    }
+    return res.json({stringSpecialties: stringSpecialties});
+
+  }
+
 }
 export default new ProvideController();
