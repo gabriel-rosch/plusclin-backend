@@ -64,19 +64,18 @@ class UserController {
             specialties.forEach(async x => {
                     const specialtie = await Specialties.findByPk(x);
                     specialtie.used = true;
-                    console.log("erro");
                     await specialtie.save();
                 }
             );
         }
-        const post = await User.create({
+        const user = await User.create({
             ...data,
             avatar_id: req.body.avatar_id,
         });
 
-        const {id, email, name, provider, clinic_id} = post;
-        if (post.provider) {
-            post.setSpecialties(specialties);
+        const {id, email, name, provider, clinic_id} = user;
+        if (user.provider) {
+            user.setSpecialties(specialties);
             return res.json({
                 id,
                 email,

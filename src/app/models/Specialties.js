@@ -17,9 +17,16 @@ class Specialties extends Model {
     return this;
   }
   static associate(models) {
-    this.belongsToMany(models.User, {
-      through: 'userSpecialties',
-      as: 'users',
+    this.belongsToMany(models.User,
+      {
+        through: 'userSpecialties',
+        as: 'users',
+        foreignKey: 'specialties_id',
+      },
+    );
+    this.belongsToMany(models.Clinic, {
+      through: 'queryValue',
+      as: 'clinics',
       foreignKey: 'specialties_id',
     });
   }

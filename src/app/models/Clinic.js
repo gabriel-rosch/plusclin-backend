@@ -1,5 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcrypt';
+import Specialties from "./Specialties";
 class Clinic extends Model {
   static init(sequelize) {
     super.init(
@@ -22,16 +23,20 @@ class Clinic extends Model {
     return this;
   }
   static associate(models) {
-    this.belongsTo(models.File, {
-      foreignKey: 'avatar_id',
-      as: 'avatar_clinic',
-    });
-  }
-  static associate(models) {
     this.belongsTo(models.Address, { foreignKey: 'address_id', as: 'addresses' });
     this.belongsTo(models.File, { foreignKey: 'avatar_id',as: 'avatar' });
 
     this.hasMany(models.User);
+
+    this.belongsTo(models.File, {
+      foreignKey: 'avatar_id',
+      as: 'avatar_clinic',
+    });
+    this.belongsToMany(models.Specialties, {
+      through: 'queryValue',
+      as: 'specialties',
+      foreignKey: 'clinic_id',
+    });
   }
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash);

@@ -7,7 +7,8 @@ import File from "../models/File";
 import Appointment from "../models/Appointment";
 import {Op} from "sequelize";
 import {endOfDay, format, isAfter, setHours, setMinutes, setSeconds, startOfDay} from "date-fns";
-import cli from "sucrase/dist/cli";
+import QueryValue from "../models/QueryValue";
+
 
 class ClinicController {
     async index(req, res) {
@@ -36,7 +37,8 @@ class ClinicController {
                 {
                     model: Address,
                     as: 'addresses',
-                    attributes: ['city','number','state', 'cep','street']
+                    attributes: ['city','number','state', 'cep','street'],
+                    where: {city: req.query.city}
                 }
             ],
         });
@@ -143,6 +145,21 @@ class ClinicController {
 
         const clinic = await Clinic.create({...req.body, address_id: address.id});
         return res.json([{clinic: clinic, address: address}]);
+    }
+    async storeQueryValue(req,res) {
+        const { value, clinic_id, specialties_id} = req.body;
+        const clinic = await Clinic.findOne({where:{id: clinic_id}});
+        if(!clinic) {
+            return res.status(404).send('Clinic not found');
+        }
+        const specialties = await Specialties.findOne({where:{id: specialties_id}});
+        if(!specialties) {
+            return res.status(404).send('Specialties not found');
+        }
+        const queryValues = await clinic.addSpecialties(specialties);
+        const queryvalue = await QueryValue.findOne({where:{id: queryValues[0].id}})
+        queryvalue.value = value;
+        return res.status(200).json(await queryvalue.save());
     }
 }
 

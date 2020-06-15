@@ -15,6 +15,7 @@ import ClinicController from './app/controllers/ClinicController';
 import authMiddlewares from './app/middlewares/auth';
 import multer from 'multer';
 import multerConfig from './config/multer';
+import MedicalRecordController from "./app/controllers/MedicalRecordController";
 
 
 const routes = new Router();
@@ -22,21 +23,25 @@ const upload = multer(multerConfig);
 
 routes.post('/user', UserController.store);
 
-
 routes.post('/sessions', SessionController.store);
 
 routes.get('/specialties', SpecialtiesController.index);
+
 routes.get('/specialties/:id', SpecialtiesController.indexId);
+
 routes.get('/specialtiesName', SpecialtiesController.indexName);
 
+routes.post('/medicalRecord', MedicalRecordController.store);
+routes.get('/medicalRecord/:appointment_id', MedicalRecordController.index);
 
 routes.post('/clinic', ClinicController.store);
 routes.get('/clinic', ClinicController.index);
 
-
 routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.post('/files', upload.single('file'), FileController.store);
+routes.get('/files/:id', FileController.index);
+routes.post('/clinic/queryValue', ClinicController.storeQueryValue);
 
 routes.get('/provider/:id/specialties', ProviderController.indexSpecialties);
 
@@ -59,6 +64,7 @@ routes.get('/appointments', AppointmentController.index);
 routes.delete('/appointments/:id', AppointmentController.delete);
 
 routes.get('/notifications', NotificationController.index);
+
 routes.put('/notifications/:id', NotificationController.update);
 
 export default routes;

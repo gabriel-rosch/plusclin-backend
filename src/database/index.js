@@ -7,12 +7,14 @@ import Specialties from '../app/models/Specialties';
 import Appointment from '../app/models/Appointment';
 import Clinic from '../app/models/Clinic';
 import Address from '../app/models/Address';
+import QueryValue from '../app/models/QueryValue';
 
 import databaseConfig from '../config/database';
 
 import SpecialtiesController from '../app/controllers/SpecialtiesController';
+import MedicalRecord from "../app/models/MedicalRecord";
 
-const models = [User, File, Appointment, Specialties, Clinic, Address];
+const models = [User, File, Appointment, Specialties, Clinic, Address, MedicalRecord,QueryValue];
 
 class DataBase {
   constructor() {
