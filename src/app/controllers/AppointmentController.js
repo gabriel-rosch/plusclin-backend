@@ -45,12 +45,13 @@ class AppointmentController {
     const schema = Yup.object().shape({
       date: Yup.date().required(),
       provider_id: Yup.number().required(),
+      specialtie_id: Yup.number()
     });
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    const { provider_id, date } = req.body;
+    const { provider_id, specialtie_id, date} = req.body;
     // Verifica se id do provedor é realmente um provider
     const checkIsProvider = await User.findOne({
       where: { id: provider_id, provider: true },
@@ -60,6 +61,14 @@ class AppointmentController {
       return res
         .status(401)
         .json({ error: 'You can only create appointments with providers' });
+    }
+    if (specialtie_id) {
+      const checkSpecialte = await Specialties.findOne({where: {id: specialtie_id}});
+      if(!checkSpecialte) {
+        return res
+            .status(401)
+            .json({ error: 'Specialtie not exist' });
+      }
     }
     // StartOfHour arredonda minutos para 00
     // Parse iso converte data string da api pra Date
@@ -90,6 +99,7 @@ class AppointmentController {
       user_id: req.userId,
       provider_id,
       date,
+      specialtie_id
     });
 
     // const user = await User.findByPk(req.userId);

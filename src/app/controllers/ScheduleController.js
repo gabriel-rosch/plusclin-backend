@@ -35,14 +35,12 @@ class ScheduleController {
         {
           model: User,
           as: 'provider',
-          attributes: ['name'],
-          include: [
-            {
-              model: Specialties,
-              as: 'specialties',
-              attributes: ['name', 'key'],
-            },
-          ]
+          attributes: ['name']
+        },
+        {
+          model: Specialties,
+          as: 'specialties',
+          attributes: ['id','name']
         },
       ],
       order: ['date'],

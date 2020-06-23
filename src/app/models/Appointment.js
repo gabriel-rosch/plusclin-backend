@@ -1,5 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 import { isBefore, subHours } from 'date-fns';
+import Specialties from "./Specialties";
 
 class Appointment extends Model {
   static init(sequelize) {
@@ -29,6 +30,7 @@ class Appointment extends Model {
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
     this.belongsTo(models.User, { foreignKey: 'provider_id', as: 'provider' });
+    this.belongsTo(models.Specialties, { foreignKey: 'specialtie_id', as: 'specialties' });
   }
 }
 export default Appointment;
