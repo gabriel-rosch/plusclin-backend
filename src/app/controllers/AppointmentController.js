@@ -6,6 +6,7 @@ import File from '../models/File';
 
 import CancellationMail from '../jobs/CancellationMail';
 import Queue from '../../lib/Queue';
+import Specialties from "../models/Specialties";
 
 class AppointmentController {
   async index(req, res) {
@@ -31,6 +32,11 @@ class AppointmentController {
               model: File,
               as: 'avatar',
               attributes: ['id', 'path', 'url'],
+            },
+            {
+              model: Specialties,
+              as: 'specialties',
+              attributes: ['name', 'key'],
             },
           ],
         },
