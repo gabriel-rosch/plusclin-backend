@@ -123,7 +123,7 @@ class AppointmentController {
     });
 
     if (appointment.user_id != req.userId) {
-      return req.status(401).json({
+      return res.status(401).json({
         error: "You don't have permission to cancel this appointment.",
       });
     }
@@ -133,7 +133,7 @@ class AppointmentController {
 
     // horario limite para cancelamento (2hr) já passou
     if (isBefore(dateWithSub, new Date())) {
-      return req.status(401).json({
+      return res.status(401).json({
         error: 'You can only cancel appointment 2 hour in advance.',
       });
     }
