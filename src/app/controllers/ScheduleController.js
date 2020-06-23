@@ -3,6 +3,7 @@ import {startOfDay, endOfDay, parseISO, subHours, isBefore} from 'date-fns';
 import { Op } from 'sequelize';
 import Appointment from '../models/Appointment';
 import User from '../models/User';
+import Specialties from "../models/Specialties";
 
 class ScheduleController {
   // Agendamento de uma data expecifica
@@ -30,6 +31,18 @@ class ScheduleController {
           model: User,
           as: 'user',
           attributes: ['name'],
+        },
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name'],
+          include: [
+            {
+              model: Specialties,
+              as: 'specialties',
+              attributes: ['name', 'key'],
+            },
+          ]
         },
       ],
       order: ['date'],

@@ -33,11 +33,6 @@ class AppointmentController {
               as: 'avatar',
               attributes: ['id', 'path', 'url'],
             },
-            {
-              model: Specialties,
-              as: 'specialties',
-              attributes: ['name', 'key'],
-            },
           ],
         },
       ],
