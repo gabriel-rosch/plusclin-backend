@@ -33,7 +33,7 @@ class ProvideController {
     const specialties = providerSpecialties.specialties.map(x => x.name);
     let stringSpecialties = '';
     for (let i = 0; i < specialties.length ; i++) {
-      if(i < specialties.size){
+      if(specialties.length !== i + 1){
         stringSpecialties = stringSpecialties + specialties[i] + ", "
       } else {
         stringSpecialties = stringSpecialties + specialties[i];

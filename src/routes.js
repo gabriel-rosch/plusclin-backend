@@ -23,6 +23,10 @@ const upload = multer(multerConfig);
 
 routes.post('/user', UserController.store);
 
+routes.get('/test', (req, res)=> {
+    return res.send('Hello firebit from plusclin!');
+});
+
 routes.post('/sessions', SessionController.store);
 
 routes.get('/specialties', SpecialtiesController.index);

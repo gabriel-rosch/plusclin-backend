@@ -4,17 +4,19 @@ class MedicalRecordController {
     async index(req, res) {
         const { appointment_id } = req.params;
         const medicalRecord = await MedicalRecord.findOne({
-            where: {appointment_id: appointment_id}
+            where: {appointment_id: appointment_id},
+            attributes: ['text', 'appointment_id']
         })
         if(!medicalRecord) {
             return res.status(404).send('not found');
         }
-        return res.status(200).send(medicalRecord)
+        return res.status(200).send(medicalRecord);
     }
     async store(req, res) {
         const { text, appointment_id } = req.body;
         let medicalRecord = await MedicalRecord.findOne({
-            where: {appointment_id: appointment_id}
+            where: {appointment_id: appointment_id},
+            attributes: ['text', 'appointment_id']
         })
         if(!medicalRecord) {
             medicalRecord = await MedicalRecord.create({
