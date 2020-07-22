@@ -12,7 +12,7 @@
     "dev": "nodemon src/server.js",
     "start" : "node src/server.js",
     "build": "webpack",
-    "heroku-postbuild": "ng build --prod",
+    "heroku-postbuild": "yarn sequelize db:migrate",
     "queue": "nodemon src/queue.js"
   },
   "dependencies": {
