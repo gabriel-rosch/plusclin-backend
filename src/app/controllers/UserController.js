@@ -82,7 +82,7 @@ class UserController {
                 name,
                 provider,
                 clinic_id,
-                specialties,
+                specialties
             });
         } else {
             return res.json({
