@@ -10,6 +10,7 @@ class App {
     this.server = express();
     this.middlawares();
     this.routes();
+
   }
 
   middlawares() {
