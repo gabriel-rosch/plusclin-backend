@@ -1,3 +1,3 @@
-web: yarn sequelize db:migrate
-web: yarn dev
+web: npm sequelize db:migrate
+web: npm dev
 
