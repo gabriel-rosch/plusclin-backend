@@ -1,11 +1,18 @@
 {
   "name": "PlusClin",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.16.3",
+    "yarn": "1.22.4",
+    "npm": "6.14.4"
+  },
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
     "start" : "node src/server.js",
+    "build": "webpack",
+    "heroku-postbuild": "ng build --prod",
     "queue": "nodemon src/queue.js"
   },
   "dependencies": {
